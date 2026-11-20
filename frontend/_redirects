@@ -1,7 +1,8 @@
-# Cloudflare Pages Redirects & API Proxy Configuration
-# If hosting frontend on Cloudflare Pages, replace 'https://api.yourdomain.com' with your backend container URL.
+# Cloudflare Pages Redirects & API Proxy Rules for Nya AI
 
-/cases/*            https://api.yourdomain.com/cases/:splat            200
-/historical-cases*  https://api.yourdomain.com/historical-cases:splat  200
-/api/*              https://api.yourdomain.com/api/:splat              200
-/*                  /index.html                                        200
+/cases/*            https://nyaai-1.onrender.com/cases/:splat            200
+/cases              https://nyaai-1.onrender.com/cases                  200
+/historical-cases*  https://nyaai-1.onrender.com/historical-cases:splat  200
+/api/*              https://nyaai-1.onrender.com/api/:splat              200
+/openapi.json       https://nyaai-1.onrender.com/openapi.json           200
+/docs               https://nyaai-1.onrender.com/docs                   200
