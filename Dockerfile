@@ -40,8 +40,9 @@ ENV DATABASE_URL="sqlite:////app/backend/data/nya.db" \
     LLM_PROVIDER="mock" \
     APP_ENV="production"
 
-# Pre-download/cache the embedding model during build so startup is instant
-RUN python -c "import sentence_transformers; sentence_transformers.SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
+# Pre-download/cache the embedding model and seed baseline precedents during build
+RUN python -c "import sentence_transformers; sentence_transformers.SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')" && \
+    cd /app/backend && python -m scripts.seed_historical_cases
 
 # Expose HTTP port
 EXPOSE 8000
