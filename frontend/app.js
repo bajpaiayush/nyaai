@@ -1,4 +1,6 @@
-const API = ""; // same-origin, backend serves this frontend
+const API = (window.location.hostname.includes("pages.dev") || window.location.hostname.includes("cloudflare"))
+  ? "https://nyaai-1.onrender.com"
+  : ""; // same-origin when running locally or on Render
 
 const state = {
   view: "dashboard",
